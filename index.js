@@ -153,19 +153,19 @@
 //     }
 // })
 
-// // async function handledata(){
-// //     try{
-// //         console.log("Before promise");
-// //         const q = await mypromise;
-// //         console.log(q);
-// //     }
-// //     catch(err){
-// //         console.log("Error: " + err);
-// //     }finally{
-// //         console.log("All done");
-// //     }
-// // }
-// // handledata();
+// async function handledata(){
+//     try{
+//         console.log("Before promise");
+//         const q = await mypromise;
+//         console.log(q);
+//     }
+//     catch(err){
+//         console.log("Error: " + err);
+//     }finally{
+//         console.log("All done");
+//     }
+// }
+// handledata();
 // const orderreceive = new Promise((resolve) => {
 //     setTimeout(() => {
 //         resolve("Order received");
@@ -193,140 +193,97 @@
 // }
 // handledata2();
 
-// function orderreceive() {
-    
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order received");
-//         }, 1000);
+// function orderreceive(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve("oder recieved");
+//         },1000)
+//     })
+// }
+// function oderprepare(){
+//     return new Promise((prepare)=>{
+//         setTimeout(()=>{
+//             prepare("order prepare");
+//         },1000)
+//     })
+// }
+// function oderdispatch(){
+//     return new Promise((dispatch)=>{
+//         setTimeout(()=>{
+//             dispatch("order dispatch");
+//         },1000)
+//     })
+// }
+// function oderdelivered(){
+//     return new Promise((delivered)=>{
+//         setTimeout(()=>{
+//             delivered("order delivered");
+//         },1000)
 //     })
 // }
 
-// async function orderhandler(){
+//  async function orderhandler(){
 //     try{
-//     const status = await orderreceive();
-//     const prepare = await orderprepared();
-//     const dispatch = await orderspatch();
-//     const deliever = await orderdelieverd();
-//     console.log(status)
-//     }catch(err){
-//         console.log(err);
+//         const status= await orderreceive();
+//         console.log(status)
+//         const status1=await oderprepare();
+//         console.log(status1)
+//         const status2=await oderdispatch();
+//         console.log(status2)
+//         const status3= await oderdelivered();
+//         console.log(status3)
+//     }catch(e){
+//         console.log(e)
 //     }
 // }
+// // orderreceive().then((msg)=>{
+// //     console.log(msg)
+// // }).catch(()=>{
+// //     console.log(e)
+// // }).finally(()=>{
+// // console.log("All done")
+// // })
 
-// orderreceive().then((msg) =>{
-//     console.log(msg)
-// }).catch((err) => {
-//     console.log(err)
-// }).finally(() => {
-//     console.log("All done");
-// })
-
-//  function orderprepared() {
-    
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order prepare");
-//         }, 1000);
-//     })
-// }
-// function orderspatch() {
-    
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order is dispatched");
-//         }, 1000);
-//     })
-// }
-// function orderdelieverd() {
-    
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order delivered");
-//         }, 1000);
-//     })
-// }
-
-// orderhandler().then((msg) => {
-//     console.log(msg)
-// }).catch((err) => {
-//     console.log(err)
-// }).finally(() => {
-//     console.log("All done");
-// })
- 
-// function orderRecieve() {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order received");
-//         }, 1000);
-//     });
-// }
-
-// async function orderHandler(){
-//     try{
-//     const status=await orderRecieve();
-//     console.log(status)
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
-
-// orderHandler();
-
-// function orderPrepared() {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order prepared");
-//         }, 1000);
-//     });
-// }
+// orderhandler();
+const container=document.getElementById('container')
+const button=document.getElementById('btn')
+const loading = document.createElement('div');
+container.appendChild(loading);
 
 
-// function orderDispatched() {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order dispatched");
-//         }, 1000);
-//     });
-// }
-
-// function orderDelivered() {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve("Order delivered");
-//         }, 1000);
-//     });
-// }
-
-// async function orderHandler() {
-//     try {
-//         console.log(await orderRecieve());
-//         console.log(await orderPrepared());
-//         console.log(await orderDispatched());
-//         console.log(await orderDelivered());
-
-//         console.log("Thank you for shopping with us!");
-//     } catch (err) {
-//         console.log(err);
-//     }
-// }
-
-// orderHandler();
-
-// function fetchdata(){
-//     const serverdata = fetch('https://fakestoreapi.com/products')
-//     console.log(serverdata)
-// }
-const button = document.getElementById('myButton');
-const container = document.getElementById('container');
 console.log(button)
-async function fetchdata(){
-        const serverdata = await fetch('https://fakestoreapi.com/products');
-        const data = await serverdata.json();
-        // console.log(data);   
-        container.innerHTML = `JSON.stringify(${data})`
-}
+ async function fetchdata(){
+    try{
+        const serverData= await fetch('https://fakestoreapi.com/products')
+        const jsonData=await serverData.json()
+        // console.log(serverData)
+        // container.innerHTML=`${JSON.stringify(jsonData)}`
 
-button.addEventListener('click', fetchdata);
-// fetchdata();
+        let table = `<table border = "5px"> 
+        <tr><th>Id</th><th>Title</th><th>Price</th><th>Description</th><th>Category</th><th>Image</th><th>Rating</th></tr>`;
+        jsonData.forEach((item) => {
+            table += `<tr>
+            <td>${item.id}</td>
+            <td>${item.title}</td>
+            <td>${item.price}</td>
+            <td>${item.description}</td>
+            <td>${item.category}</td>
+            <td><img src="${item.image}" alt="${item.title}" width="50" height="50"></td>
+            <td>${item.rating.rate} (${item.rating.count})</td>
+            </tr>`;
+        });
+        table += `</table>`;
+        container.innerHTML = table; 
+                
+        console.log(jsonData)
+    }catch(e){
+        loading.innerHTML=table;
+        
+    }
+    finally{
+        loading.innerHTML=''
+    }
+
+}
+button.addEventListener('click',fetchdata)
+// fetchdata()
