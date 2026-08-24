@@ -75,7 +75,13 @@ function buildresume() {
     finally {
         if (root.contains(loader)) {
             root.removeChild(loader);
+
         }
+        setTimeout(() => {
+            if (root.contains(img)) {
+                root.removeChild(img);
+            }
+        }, 5000);
     }
 }
 
