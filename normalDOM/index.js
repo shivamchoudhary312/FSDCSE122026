@@ -36,6 +36,7 @@ function buildresume() {
 
         row1.appendChild(nameHeading);
         row1.appendChild(nameValue);
+        row1.style.backgroundColor = 'skyblue';
 
         const row2 = document.createElement('tr');
 
@@ -47,7 +48,7 @@ function buildresume() {
 
         row2.appendChild(qualificationHeading); 
         row2.appendChild(qualificationValue);
-
+        row2.style.backgroundColor = 'lightgray';
         const row3 = document.createElement('tr');
 
         const streamHeading = document.createElement('th');
@@ -58,6 +59,7 @@ function buildresume() {
 
         row3.appendChild(streamHeading);
         row3.appendChild(streamValue);
+        row3.style.backgroundColor = 'lightgreen';
 
         table.appendChild(row1);
         table.appendChild(row2);
