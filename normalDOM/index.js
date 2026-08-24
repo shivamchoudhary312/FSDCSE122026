@@ -24,6 +24,7 @@ function buildresume() {
         
         const table = document.createElement('table');
         table.border = '1';
+        table.style.backgroundColor = 'black';
 
     
         const row1 = document.createElement('tr');
