@@ -5,12 +5,12 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import ICard from './component/ICard'
 import pic from './images/student.webp'
+import Gallery from './component/Gallery'
 function App() {
 
   return (
     <div>
-      <ICard/>
-      <ICard/>
+      <Gallery/>
     </div>
     
   )
