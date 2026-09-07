@@ -6,11 +6,15 @@ import './App.css'
 import ICard from './component/ICard'
 import pic from './images/student.webp'
 import Gallery from './component/Gallery'
+import Reacthook from './component/Reacthook'
+import Imagemanipulation from './component/Imagemanipulation'
 function App() {
 
   return (
     <div>
-      <Gallery/>
+      {/* <Gallery/> */}
+      {/* <Reacthook/> */}
+      <Imagemanipulation/>
     </div>
     
   )
