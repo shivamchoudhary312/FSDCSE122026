@@ -8,13 +8,16 @@ import pic from './images/student.webp'
 import Gallery from './component/Gallery'
 import Reacthook from './component/Reacthook'
 import Imagemanipulation from './component/Imagemanipulation'
+import Useeffect from './component/Useeffect'
 function App() {
 
   return (
     <div>
       {/* <Gallery/> */}
       {/* <Reacthook/> */}
-      <Imagemanipulation/>
+      {/* <Imagemanipulation/> */}
+      <Useeffect/>
+      
     </div>
     
   )
