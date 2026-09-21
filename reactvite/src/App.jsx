@@ -12,15 +12,11 @@ import Useeffect from './component/Useeffect'
 function App() {
 
   return (
-    <div>
-      {/* <Gallery/> */}
-      {/* <Reacthook/> */}
-      {/* <Imagemanipulation/> */}
+      <div>
       <Useeffect/>
       
     </div>
-    
-  )
+      )
 }
 
 export default App
