@@ -64,5 +64,4 @@ function UseEffect() {
     </div>
   )
 }
-//fetchapi
 export default UseEffect
