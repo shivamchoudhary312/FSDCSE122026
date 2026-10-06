@@ -15,19 +15,20 @@ import Login from './component/Login'
 import Registration from './component/Registration'
 import Dashboard from './component/Dashboard'
 function App() {
+  const[data,setData]=useState();
 
   return ( 
       <div>
         <BrowserRouter>
         <Routes>
-          <Route path= '/' element={<Home/>}></Route>
-          <Route path= '/login' element={<Login/>}></Route>
-          <Route path= '/registration' element={<Registration/>}></Route>
-          <Route path= '/dashboard' element={<Dashboard/>}></Route>
+          <Route path= '/' element={<Home/>}/>
+          <Route path= '/login' element={<Login/>}/>
+          <Route path= '/registration' element={<Registration regdata={data}/>}/>
+          <Route path= '/dashboard' element={<Dashboard/>}/>
 
         </Routes>
         </BrowserRouter>
-    
+    {JSON.stringify(data)}
       
     </div>
       )
